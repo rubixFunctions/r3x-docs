@@ -201,15 +201,15 @@ After building the project, add the binary `r3x-cli` to $PATH
 $ r3x init hello-function --type js 
 ```
 
-### Create a Function as a Container Image
-The create function image locally:
+### Build a Function as a Container Image
+To build a function image locally and push it to docker hub:
 ```
 $ cd <<function dir>>
-$ r3x create -p -n <<Repo Name or Org>>
+$ r3x build -p -n <<Repo Name or Org>>
 ```
 ## Building and deploying the sample
 
-Once you have initialized and created the Function as a Container you're ready to deploy the app.
+Once you have initialized and built the Function as a Container you're ready to deploy the app.
 
 
 1. After the build has completed and the container is pushed to docker hub, you
