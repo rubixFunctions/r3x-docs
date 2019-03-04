@@ -1,4 +1,4 @@
-# RubiX Showcase Repo's
+# RubiX Samples
 
 This directory contains sample applications built using the RubiX Framework
 
