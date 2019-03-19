@@ -18,3 +18,4 @@ Sample apps developed to demonstrate, how to deploy a function to Knative can be
 ## Getting Started
 - [Installing Knative and Deploying a r3x Function](./install/README.md)
 - [Using the RubiX CLI](./cli/README.md)
+- [Deploy the Showcase Application](https://github.com/rubixFunctions/r3x-showcase-apps/blob/master/README.md)
