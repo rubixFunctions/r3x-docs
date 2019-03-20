@@ -19,3 +19,4 @@ Sample apps developed to demonstrate, how to deploy a function to Knative can be
 - [Installing Knative and Deploying a r3x Function](./install/README.md)
 - [Using the RubiX CLI](./cli/README.md)
 - [Deploy the Showcase Application](https://github.com/rubixFunctions/r3x-showcase-apps/blob/master/README.md)
+- [Knative GKE with Terraform](https://github.com/rubixFunctions/r3x-gke-terraform/blob/master/README.md)
