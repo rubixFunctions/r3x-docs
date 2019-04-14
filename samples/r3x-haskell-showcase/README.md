@@ -10,6 +10,8 @@ $ stack build
 To run the showcase locally run the following:
 ```
 $ stack exec r3x-haskell-showcase-exe
+$ curl localhost:8080
+    {"message":"Hello RubiX!!!"}%
 ```
 
 ## Documentation
