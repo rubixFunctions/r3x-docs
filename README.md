@@ -5,7 +5,7 @@
 This work was carried out as a Final Year Project, as part of the Bachelor of Science (Hons) in Applied Computing. The end result of this project will be a Framework which provides a suite of SDK’s and a CLI that will reduce the barrier of entry to serverless development within Knative, by abstracting the boring bits and allowing you to focus on your functions.
 
 ## Components
-- SDK - Abstracts the configuration away from the user allowing you to focus on the logic behind your function -- [JavaScript](https://github.com/rubixFunctions/r3x-js-sdk), [GoLang](https://github.com/rubixFunctions/r3x-golang-sdk), [Python](https://github.com/rubixFunctions/r3x-python-sdk), [Java](https://github.com/rubixFunctions/r3x-java-sdk)
+- SDK - Abstracts the configuration away from the user allowing you to focus on the logic behind your function -- [JavaScript](https://github.com/rubixFunctions/r3x-js-sdk), [GoLang](https://github.com/rubixFunctions/r3x-golang-sdk), [Python](https://github.com/rubixFunctions/r3x-python-sdk), [Java](https://github.com/rubixFunctions/r3x-java-sdk), [Haskell](https://github.com/rubixFunctions/r3x-haskell-sdk)
 - [CLI](https://github.com/rubixFunctions/r3x-cli) - A command line tool to bootstrap Functions as a Container.
 
 ## Sample Apps
@@ -13,6 +13,7 @@ Sample apps developed to demonstrate, how to deploy a function to Knative can be
 - [JavaScript](./samples/r3x-js-showcase) 
 - [GoLang](./samples/r3x-golang-showcase)
 - [Python](./samples/r3x-python-showcase)
+- [Haskell](./samples/r3x-haskell-showcase)
 
 
 ## Getting Started
