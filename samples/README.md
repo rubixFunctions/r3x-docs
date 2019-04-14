@@ -6,6 +6,7 @@ This directory contains sample applications built using the RubiX Framework
 - [JavaScript](./r3x-js-showcase) 
 - [GoLang](./r3x-golang-showcase)
 - [Python](./r3x-python-showcase)
+- [Haskell](./r3x-haskell-showcase)
 
 ## Documentation
 For full details on how deploy this function to Knative, please refer to our [Documentation here.](https://github.com/rubixFunctions/r3x-docs/blob/master/README.md)
