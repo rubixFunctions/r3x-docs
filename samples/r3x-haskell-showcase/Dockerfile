@@ -1,4 +1,4 @@
-FROM haskell:8.6
+FROM haskell:8.2.2 as builder
 
 RUN apt-get update && apt-get install --yes \
     xz-utils \ 
@@ -8,13 +8,25 @@ RUN apt-get update && apt-get install --yes \
     libpcre3 \
     make
 
+# Copy local code to the container image.
 WORKDIR /app
+COPY . .
 
-ADD . /app
-
+# Build and test our code, then build the “helloworld-haskell-exe” executable.
 RUN stack setup
-RUN stack build
+RUN stack build --copy-bins --ghc-options '-static -optl-static -optl-pthread -fPIC'
 
-EXPOSE 8080
+# Use a Docker multi-stage build to create a lean production image.
+# https://docs.docker.com/develop/develop-images/multistage-build/#use-multi-stage-builds
+FROM fpco/haskell-scratch
 
-CMD ["stack", "exec", "r3x-haskell-sdk-exe"]
+# Copy the "helloworld-haskell-exe" executable from the builder stage to the production image.
+WORKDIR /root/
+COPY --from=builder /root/.local/bin/helloworld-haskell-exe .
+
+# Service must listen to $PORT environment variable.
+# This default value facilitates local development.
+ENV PORT 8080
+
+# Run the web service on container startup.
+CMD ["./helloworld-haskell-exe"]

@@ -1,3 +1,6 @@
 .stack-work/
-r3x-haskell-showcase.cabal
+*.cabal
 *~
+/.idea/
+/dist/
+/out/

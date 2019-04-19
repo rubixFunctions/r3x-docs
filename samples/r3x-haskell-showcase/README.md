@@ -2,7 +2,6 @@
 [![License](https://img.shields.io/badge/-Apache%202.0-blue.svg)](https://opensource.org/s/Apache-2.0)
 
 ## About
-This showcase is bootstrapped using the `stack` tool, which can be downloaded [here](https://docs.haskellstack.org/en/stable/README/)
 To build the showcase run:
 ```
 $ stack build
