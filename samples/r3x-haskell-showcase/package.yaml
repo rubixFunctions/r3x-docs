@@ -1,0 +1,17 @@
+name:                helloworld-haskell
+version:             0.1.0.0
+dependencies:
+- base >= 4.7 && < 5
+- r3x-haskell-sdk
+- wai
+- text
+- aeson
+
+executables:
+  helloworld-haskell-exe:
+    main:                Main.hs
+    source-dirs:         app
+    ghc-options:
+    - -threaded
+    - -rtsopts
+    - -with-rtsopts=-N
