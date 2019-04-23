@@ -128,9 +128,9 @@ Admin permissions are required to create the necessary
 Knative depends on Istio.
 
 1. Install Istio:
-   ```bash
-   kubectl apply --filename https://github.com/knative/serving/releases/download/v0.4.0/istio-crds.yaml && \
-   kubectl apply --filename https://github.com/knative/serving/releases/download/v0.4.0/istio.yaml
+  ```bash
+   kubectl apply --filename https://github.com/knative/serving/releases/download/v0.5.0/istio-crds.yaml && \
+   kubectl apply --filename https://github.com/knative/serving/releases/download/v0.5.0/istio.yaml
    ```
    Note: the resources (CRDs) defined in the `istio-crds.yaml`file are
    also included in the `istio.yaml` file, but they are pulled out so that
@@ -161,16 +161,37 @@ The following commands install all available Knative components as well as the
 standard set of observability plugins. To customize your Knative installation,
 see [Performing a Custom Knative Installation](Knative-custom-install.md).
 
-1. Run the `kubectl apply` command to install Knative and its dependencies:
-    ```bash
-    kubectl apply --filename https://github.com/knative/serving/releases/download/v0.4.0/serving.yaml \
-   --filename https://github.com/knative/build/releases/download/v0.4.0/build.yaml \
-   --filename https://github.com/knative/eventing/releases/download/v0.4.0/in-memory-channel.yaml \
-   --filename https://github.com/knative/eventing/releases/download/v0.4.0/release.yaml \
-   --filename https://github.com/knative/eventing-sources/releases/download/v0.4.0/release.yaml \
-   --filename https://github.com/knative/serving/releases/download/v0.4.0/monitoring.yaml \
-   --filename https://raw.githubusercontent.com/knative/serving/v0.4.0/third_party/config/build/clusterrole.yaml
-    ```
+1. To install Knative, first install the CRDs by running the `kubectl apply`
+   command once with the `-l knative.dev/crd-install=true` flag. This prevents
+   race conditions during the install, which cause intermittent errors:
+
+   ```bash
+   kubectl apply --selector knative.dev/crd-install=true \
+   --filename https://github.com/knative/serving/releases/download/v0.5.0/serving.yaml \
+   --filename https://github.com/knative/build/releases/download/v0.5.0/build.yaml \
+   --filename https://github.com/knative/eventing/releases/download/v0.5.0/release.yaml \
+   --filename https://github.com/knative/eventing-sources/releases/download/v0.5.0/eventing-sources.yaml \
+   --filename https://github.com/knative/serving/releases/download/v0.5.0/monitoring.yaml \
+   --filename https://raw.githubusercontent.com/knative/serving/v0.5.0/third_party/config/build/clusterrole.yaml
+   ```
+
+1. To complete the install of Knative and its dependencies, run the
+   `kubectl apply` command again, this time without the `--selector`
+   flag, to complete the install of Knative and its dependencies:
+
+   ```bash
+   kubectl apply --filename https://github.com/knative/serving/releases/download/v0.5.0/serving.yaml \
+   --filename https://github.com/knative/build/releases/download/v0.5.0/build.yaml \
+   --filename https://github.com/knative/eventing/releases/download/v0.5.0/release.yaml \
+   --filename https://github.com/knative/eventing-sources/releases/download/v0.5.0/eventing-sources.yaml \
+   --filename https://github.com/knative/serving/releases/download/v0.5.0/monitoring.yaml \
+   --filename https://raw.githubusercontent.com/knative/serving/v0.5.0/third_party/config/build/clusterrole.yaml
+   ```
+
+   > **Note**: For the v0.4.0 release and newer, the `clusterrole.yaml` file is
+   > required to enable the Build and Serving components to interact with each
+   > other.
+
 1. Monitor the Knative components until all of the components show a
    `STATUS` of `Running`:
     ```bash
